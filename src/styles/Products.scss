@@ -45,7 +45,8 @@ body {
         transparent 10%
       )
       center center / 100% 100%,
-    url('') 100% center / 60% auto;
+    url('http://localhost:3000/img/商城img/pd-banner-table.jpeg')
+      100% center / 60% auto;
 }
 /* 健身專區 */
 .pd-banner-workout {
@@ -57,7 +58,8 @@ body {
         transparent 10%
       )
       center center / 100% 100%,
-    url() 100% center / 50% auto;
+    url('http://localhost:3000/img/商城img/pd-banner-workout.jpeg')
+      100% center / 50% auto;
 }
 
 /* 嚴選食材 */
@@ -70,7 +72,8 @@ body {
         transparent 10%
       )
       center center / 100% 100%,
-    url() 100% center / auto 100%;
+    url('http://localhost:3000/img/商城img/pd-banner-material.jpg')
+      100% center / auto 100%;
 }
 
 .pd-ba-container {
