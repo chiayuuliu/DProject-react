@@ -1,0 +1,56 @@
+$dark-green: #2a593e;
+$light-green: #8fc065;
+$light-orange: #fb6107;
+$light-yellow: #ffb606;
+
+.pd-client-banner {
+  height: 100vh;
+  background-color: #8fc06527;
+}
+@mixin optionBtn {
+  width: 180px;
+  height: 180px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+//   background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.pd-slim,
+.pd-five,
+.pd-three,
+.pd-none {
+    @include optionBtn
+}
+// .pd-gain {
+//     // background-size: 100%;
+//     background: url('http://localhost:3000/img/商城img/客製化/增肌減脂.jpg') center center no-repeat;;
+// }
+.pd-slim {
+  background: url() center center no-repeat;
+}
+.pd-years {
+}
+.pd-client-banner{
+    height: 100vh;
+    background-color: rgb(255, 215, 221);
+}
+.pd-gain {
+width: 180px;
+height: 180px;
+border: none;
+border-radius: 50%;
+background-color: white;
+background: url('http://localhost:3000/img/商城img/客製化/增肌減脂.jpg')center center no-repeat; 
+background-size: 100%;
+}
+// .pd-slim {
+// width: 180px;
+// height: 180px;
+// border: none;
+// border-radius: 50%;
+// background-color: white;
+// background: url(./../img/專題/變瘦.jpg)center center no-repeat; 
+// background-size: 100%;
+// }

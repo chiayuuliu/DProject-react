@@ -1,6 +1,8 @@
 // 預設變數覆蓋需要在導入Bootstrap之前
-$primary: #e412a5;
-$secondary: #131010;
+$dark-green: #2a593e;
+$light-green: #8fc065;
+$light-orange: #fb6107;
+$light-yellow: #ffb606;
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

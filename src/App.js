@@ -9,6 +9,8 @@ import {
 // 頁面用元件
 import ProductDetail from './pages/Product/ProductDetail'
 import Products from './pages/Product/Products'
+import Customized from './pages/Product/Customized'
+
 
 // 組合用元件
 
@@ -22,6 +24,9 @@ function App() {
           </Route>
           <Route path="/products">
             <Products />
+          </Route>
+          <Route path="/client-target">
+            <Customized />
           </Route>
         </Switch>
       </>
