@@ -26,20 +26,20 @@ function Products(props) {
       <TableBanner />
 
       {/* ---------- */}
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           {/* 分類按鈕 */}
-          <div class="pd-filter-btn-wrap">
-            <div class="pd-cate d-flex mb-80">
+          <div className="pd-filter-btn-wrap">
+            <div className="pd-cate d-flex mb-80">
               <CateTag />
             </div>
             {/* 篩選器 */}
-            <div class="pd-filter">
+            <div className="pd-filter">
               <Filter />
             </div>
           </div>
           {/* ---- */}
-          <div class="pd-card-wrap d-flex col-md-12 col-lg-9">
+          <div className="pd-card-wrap d-flex col-md-12 col-lg-9">
             {/* 商品卡 */}
             <ProductCard />
           </div>

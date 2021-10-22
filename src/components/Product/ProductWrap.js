@@ -7,16 +7,16 @@ const ProductWrap = (props) => {
         <div className="dt-bgimg">
           <img src="" alt="" />
         </div>
-        <div class="dtmb-love-icon">
-          <i class="far fa-heart"></i>
+        <div className="dtmb-love-icon">
+          <i className="far fa-heart"></i>
         </div>
       </div>
 
       <div className="dt-intro-wrap col-sm-12 col-lg-6">
-        <div class="dt-name fs44 mb20 d-flex">
+        <div className="dt-name fs44 mb20 d-flex">
           雞胸肉沙拉
-          <div class="dt-love-icon">
-            <i class="far fa-heart"></i>
+          <div className="dt-love-icon">
+            <i className="far fa-heart"></i>
           </div>
         </div>
         <p className="dt-intro fs24 mb20">

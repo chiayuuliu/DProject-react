@@ -3,19 +3,19 @@ import React from 'react'
 function Filter(props) {
   return (
     <>
-      <form action="" class="d-flex pd-search-wrap">
-        <button type="button" class="pd-search-icon">
-          <i class="fas fa-search "></i>
+      <form action="" className="d-flex pd-search-wrap">
+        <button type="button" className="pd-search-icon">
+          <i className="fas fa-search "></i>
         </button>
         <input
           type="text"
-          class="pd-search-input"
+          className="pd-search-input"
           name="search"
           id="search"
           placeholder="請輸入關鍵字"
         />
       </form>
-      <div class="pd-radio-wrap">
+      <div className="pd-radio-wrap">
         <input type="radio" name="option" id="low" />
         <label for="low">低熱量優先</label>
         <br />

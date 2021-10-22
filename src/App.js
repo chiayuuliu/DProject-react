@@ -19,12 +19,15 @@ function App() {
     <Router>
       <>
         <Switch>
+        {/* 商品細節頁 */}
           <Route path="/product-detail">
             <ProductDetail />
           </Route>
+          {/* 商品頁 */}
           <Route path="/products">
             <Products />
           </Route>
+          {/* 客製化推薦 */}
           <Route path="/client-target">
             <Customized />
           </Route>
