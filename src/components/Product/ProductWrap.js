@@ -5,7 +5,10 @@ const ProductWrap = (props) => {
     <>
       <div className="dt-product-imgwrap col-lg-6">
         <div className="dt-bgimg">
-          <img src="" alt="" />
+          <img
+            src="http://localhost:3000/img/商城img/product.png"
+            alt=""
+          />
         </div>
         <div className="dtmb-love-icon">
           <i className="far fa-heart"></i>
@@ -20,7 +23,7 @@ const ProductWrap = (props) => {
           </div>
         </div>
         <p className="dt-intro fs24 mb20">
-          含有優質蛋白質卻有極低脂肪的雞胸肉是健身族群最經典的選擇。
+          含有優質蛋白質卻有極低脂肪的雞胸肉是健身族群最經典的選擇。(500g)
         </p>
         <div className="dt-content-wrap d-flex">
           <div className="content-wrap">
