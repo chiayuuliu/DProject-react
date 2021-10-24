@@ -3,7 +3,13 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import conf, {
+  API_HOST,
+  IMG_PATH,
+  Product_API,
+} from './../../config/config.js'
+
 // 組合用元件
 // Banner
 import AllBanner from './../../components/Product/AllBanner'
@@ -17,6 +23,19 @@ import ProductCard from './../../components/Product/ProductCard'
 import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      const r = await fetch(Product_API)
+      const obj = await r.json()
+      setProducts(obj.rows)
+      console.log(obj.rows)
+    })()
+  }, [])
+
+  // console.log(products.sid)
+
   return (
     <>
       {/* Banner */}
@@ -41,7 +60,17 @@ function Products(props) {
           {/* ---- */}
           <div className="pd-card-wrap d-flex col-md-12 col-lg-9">
             {/* 商品卡 */}
-            <ProductCard />
+            {products.map((v, i) => {
+              return (
+                <ProductCard
+                  key={v.sid}
+                  sid={v.sid}
+                  name={v.name}
+                  cal={v.content_cal}
+                  price={v.price}
+                />
+              )
+            })}
           </div>
 
           {/* 頁碼 */}

@@ -4,7 +4,8 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
+// import conf, { API_HOST } from './config'
 
 // 頁面用元件
 import ProductDetail from './pages/Product/ProductDetail'
