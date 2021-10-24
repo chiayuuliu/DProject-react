@@ -19,13 +19,17 @@ function Filter(props) {
       </div>
       {/* 篩選器 */}
       <div className="pd-radio-wrap">
-        <input type="radio" name="option" id="low" />
+        <input type="radio" name="pd-filter" id="low" />
         <label for="low">低熱量優先</label>
         <br />
-        <input type="radio" name="option" id="hight" />
+        <input type="radio" name="pd-filter" id="hight" />
         <label for="hight">高蛋白優先</label>
         <br />
-        <input type="radio" name="option" id="lowsugar" />
+        <input
+          type="radio"
+          name="pd-filter"
+          id="lowsugar"
+        />
         <label for="lowsugar">低醣料理</label>
       </div>
     </>

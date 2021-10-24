@@ -3,10 +3,25 @@ import React from 'react'
 function CateTag(props) {
   return (
     <>
-      <button className="pd-all">全部商品</button>
-      <button className="pd-table">快速上桌</button>
-      <button className="pd-workout">健身專區</button>
-      <button className="pd-material">嚴選食材</button>
+      <input type="radio" name="pd-cate" id="all" />
+      <label class="pd-all" for="all">
+        全部商品
+      </label>
+
+      <input type="radio" name="pd-cate" id="table" />
+      <label class="pd-table" for="table">
+        快速上桌
+      </label>
+
+      <input type="radio" name="pd-cate" id="workable" />
+      <label class="pd-workout" for="workable">
+        健身專區
+      </label>
+
+      <input type="radio" name="pd-cate" id="material" />
+      <label class="pd-material" for="material">
+        嚴選食材
+      </label>
     </>
   )
 }

@@ -106,24 +106,27 @@ body {
   flex-direction: column;
   margin-top: 50px;
 }
-.pd-cate button {
+input[name='pd-cate'] {
+  display: none;
+}
+.pd-cate label {
   font-size: 20px;
   border: none;
   background-color: white;
   color: #2a593e;
-  border: 1px solid lightgray;
   cursor: pointer;
-  padding: 5px 30px;
+  text-align: center;
+  padding: 5px 0;
+  transition: 0.3s;
 }
-.pd-cate :first-child {
+
+input[name='pd-cate']:checked + label {
   background-color: #8fc065;
   color: white;
   font-weight: bold;
-  border: none;
+  letter-spacing: 3px;
 }
-.pd-cate button:focus {
-  outline: none;
-}
+
 /* 篩選器 */
 .pd-search-icon {
   border: none;
@@ -151,11 +154,11 @@ input[type='text']:focus {
   border-bottom: #8fc065 2px solid;
 }
 
-input[type='radio']:checked + label {
+input[name='pd-filter']:checked + label {
   color: #2a593e;
   font-weight: bold;
 }
-input[type='radio'] + label {
+input[name='pd-filter'] + label {
   font-size: 16px;
   color: #2a593e;
   cursor: pointer;
