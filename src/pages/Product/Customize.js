@@ -1,20 +1,12 @@
 import React from 'react'
 import ProductCard from './../../components/Product/ProductCard'
-function Customized(props) {
-  const handleSubmit = (e) => {
-    e.stopPropagation()
-    console.log(e.currentTarget)
-    e.preventDefault()
-  }
+function Customize(props) {
   return (
     <>
       <div className="pd-client-banner d-flex">
         <div className="pd-target-wrap d-flex col-lg-7 col-md-12">
           <h1>我想要...</h1>
-          <form
-            className="pd-target d-flex"
-            onSubmit={handleSubmit}
-          >
+          <div className="pd-target d-flex">
             <div className="pd-gain-wrap mlr">
               <button className="pd-gain"></button>
               <p>增肌減脂</p>
@@ -23,12 +15,9 @@ function Customized(props) {
               <button className="pd-slim "></button>
               <p>變瘦</p>
             </div>
-          </form>
+          </div>
           <h1>我每周運動...</h1>
-          <form
-            className="pd-target d-flex"
-            onSubmit={handleSubmit}
-          >
+          <div className="pd-target d-flex">
             <div className="pd-five-wrap">
               <button className="pd-five"></button>
               <p>五次以上</p>
@@ -41,7 +30,7 @@ function Customized(props) {
               <button className="pd-none"></button>
               <p>不運動</p>
             </div>
-          </form>
+          </div>
         </div>
         <div className="pd-client-wrap d-flex col-lg-5 col-md12">
           <div className="pd-client-info d-flex">
@@ -104,4 +93,4 @@ function Customized(props) {
   )
 }
 
-export default Customized
+export default Customize

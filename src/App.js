@@ -9,8 +9,7 @@ import {
 // 頁面用元件
 import ProductDetail from './pages/Product/ProductDetail'
 import Products from './pages/Product/Products'
-import Customized from './pages/Product/Customized'
-
+import Customize from './pages/Product/Customize'
 
 // 組合用元件
 
@@ -19,20 +18,20 @@ function App() {
     <Router>
       <>
         <Switch>
-        {/* 商品細節頁 */}
-        {/* 實際路由/product-detail/:id */}
+          {/* 商品細節頁 */}
+          {/* 實際路由/products/:id */}
           <Route path="/product-detail">
             <ProductDetail />
           </Route>
           {/* 商品頁 */}
-          {/* 其他頁面路由/cate=1,/cate=2,/cate=3,/all */}
+          {/* (TBA)其他頁面路由/cate=1,/cate=2,/cate=3 */}
           <Route path="/products">
             <Products />
           </Route>
           {/* 客製化推薦 */}
           {/* 選不同的路由要變??? */}
-          <Route path="/client-target">
-            <Customized />
+          <Route path="/customize">
+            <Customize />
           </Route>
         </Switch>
       </>
