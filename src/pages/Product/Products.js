@@ -23,14 +23,18 @@ import ProductCard from './../../components/Product/ProductCard'
 import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
+  const [searchWord, setSearchWord] = useState('')
   const [products, setProducts] = useState([])
+
+  // 總頁數
+  const [pages, setPages] = useState(0)
 
   useEffect(() => {
     ;(async () => {
       const r = await fetch(Product_API)
       const obj = await r.json()
       setProducts(obj.rows)
-      console.log(obj.rows)
+      setPages(obj.totalPages)
     })()
   }, [])
 
@@ -39,10 +43,10 @@ function Products(props) {
   return (
     <>
       {/* Banner */}
-      {/* <AllBanner /> */}
+      <AllBanner />
       {/* <MaterialBanner /> */}
       {/* <WorkoutBanner /> */}
-      <TableBanner />
+      {/* <TableBanner /> */}
 
       {/* ---------- */}
       <div className="container">
@@ -74,7 +78,7 @@ function Products(props) {
           </div>
 
           {/* 頁碼 */}
-          <PageBtn />
+          <PageBtn pages={pages} />
         </div>
       </div>
     </>

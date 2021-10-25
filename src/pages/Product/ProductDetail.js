@@ -4,7 +4,12 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import conf, {
+  API_HOST,
+  IMG_PATH,
+  Product_API,
+} from './../../config/config.js'
 
 // 組合用元件
 // 商品圖
@@ -16,13 +21,33 @@ import Comments from './../../components/Product/Comments'
 
 // 細節頁
 function ProductDetail() {
+  const [ProductDetail, setProductDetail] = useState([])
+  const p = { ...ProductDetail }
+  useEffect(() => {
+    ;(async () => {
+      const r = await fetch(Product_API + '/1')
+      const obj = await r.json()
+      setProductDetail(obj.data)
+      console.log(obj.data)
+    })()
+  }, [])
   return (
     <>
       <div className="dt-bg"></div>
       {/* 商品大圖 */}
       <div className="container mb80">
         <div className="row d-flex dt-product">
-          <ProductWrap />
+          <ProductWrap
+            name={p.name}
+            img={p.product_img}
+            intro={p.introduction}
+            unit={p.unit}
+            cal={p.content_cal}
+            protein={p.content_protein}
+            fat={p.content_fat}
+            carbon={p.content_carbon}
+            price={p.price}
+          />
         </div>
       </div>
       {/* detail */}
@@ -32,7 +57,11 @@ function ProductDetail() {
             <h4>Detail</h4>
           </div>
           <div className="dt-product-wrap d-flex">
-            <Detail />
+            <Detail
+              detailImg={p.detail_img}
+              title={p.detail_title}
+              content={p.detail_content}
+            />
           </div>
         </div>
       </div>
