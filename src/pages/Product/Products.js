@@ -24,21 +24,45 @@ import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
   const [searchWord, setSearchWord] = useState('')
+  // 所有商品
   const [products, setProducts] = useState([])
+  // 篩選後商品
+  const [displayProducts, setDisplayProducts] = useState([])
 
   // 總頁數
   const [pages, setPages] = useState(0)
-
+  // 要所有資料
   useEffect(() => {
     ;(async () => {
       const r = await fetch(Product_API)
       const obj = await r.json()
       setProducts(obj.rows)
+      setDisplayProducts(obj.rows)
       setPages(obj.totalPages)
     })()
   }, [])
 
-  // console.log(products.sid)
+  // 關鍵字搜尋
+  const handleSearch = (products, searchWord) => {
+    let newProducts = []
+
+    if (searchWord) {
+      newProducts = products.filter((value) => {
+        return value.name.includes(searchWord)
+      })
+    } else {
+      newProducts = [...products]
+    }
+    return newProducts
+  }
+  // 篩選器有變動時,重新設定商品列表
+  useEffect(() => {
+    let newProducts = []
+
+    newProducts = handleSearch(products, searchWord)
+
+    setDisplayProducts(newProducts)
+  }, [searchWord])
 
   return (
     <>
@@ -56,15 +80,18 @@ function Products(props) {
             <div className="pd-cate d-flex mb-80">
               <CateTag />
             </div>
-            {/* 篩選器 */}
+            {/* 篩選器(關鍵字搜尋/熱量篩選) */}
             <div className="pd-filter">
-              <Filter />
+              <Filter
+                searchWord={searchWord}
+                setSearchWord={setSearchWord}
+              />
             </div>
           </div>
           {/* ---- */}
           <div className="pd-card-wrap d-flex col-md-12 col-lg-9">
             {/* 商品卡 */}
-            {products.map((v, i) => {
+            {displayProducts.map((v, i) => {
               return (
                 <ProductCard
                   key={v.sid}

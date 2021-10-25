@@ -153,7 +153,10 @@ input[type='text']:focus {
   outline: none;
   border-bottom: #8fc065 2px solid;
 }
-
+// 關鍵字按鈕隱藏
+.pd-keyBtn {
+  // display: none;
+}
 input[name='pd-filter']:checked + label {
   color: #2a593e;
   font-weight: bold;

@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Filter(props) {
+  const [input, setInput] = useState('')
   const { searchWord, setSearchWord } = props
   const { filter, setFilter } = props
 
   return (
     <>
       <div className="d-flex pd-search-wrap">
-        <button type="button" className="pd-search-icon">
+        <div className="pd-search-icon">
           <i className="fas fa-search "></i>
-        </button>
+        </div>
         {/* 關鍵字搜尋 */}
         <input
           type="text"
           className="pd-search-input"
           placeholder="請輸入關鍵字"
-          value={searchWord}
-          onChange={(e) => setSearchWord(e.target.value)}
+          value={input}
+          // 輸入框狀態改變時設定回值
+          onChange={(e) => {
+            setInput(e.target.value)
+            console.log(e.target.value)
+            if (!e.target.value) {
+              setSearchWord('')
+              console.log(!e.target.value)
+            }
+          }}
+          onKeyDown={(e) => {
+            // 在輸入框按下enter,把內容設定回狀態
+            if (e.keyCode === 13) {
+              console.log(input)
+              setSearchWord(input)
+            }
+          }}
         />
       </div>
       {/* 篩選器 */}

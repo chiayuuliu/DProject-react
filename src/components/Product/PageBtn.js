@@ -10,8 +10,8 @@ function PageBtn(props) {
           <i className="fas fa-chevron-left"></i>
         </div>
         {/* 頁數 */}
+        {/* <>{for(i=1;i<pages; i++)} */}
         <div className="page">1</div>
-
         {/* 下一頁 */}
         <div className="page-next">
           <i className="fas fa-chevron-right"></i>
