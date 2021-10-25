@@ -23,14 +23,17 @@ import ProductCard from './../../components/Product/ProductCard'
 import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
-  const [searchWord, setSearchWord] = useState('')
   // 所有商品
   const [products, setProducts] = useState([])
   // 篩選後商品
   const [displayProducts, setDisplayProducts] = useState([])
-
+  // 關鍵字搜尋狀態
+  const [searchWord, setSearchWord] = useState('')
+  // 商品分類標籤(radio)
+  const [productCate, setProductCate] = useState('0')
   // 總頁數
-  const [pages, setPages] = useState(0)
+  const [pages, setPages] = useState([])
+
   // 要所有資料
   useEffect(() => {
     ;(async () => {
@@ -38,7 +41,9 @@ function Products(props) {
       const obj = await r.json()
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
-      setPages(obj.totalPages)
+      setPages([obj.totalPages])
+      console.log(typeof pages)
+      // console.log(pagebtn)
     })()
   }, [])
 
@@ -55,14 +60,30 @@ function Products(props) {
     }
     return newProducts
   }
+
+  // 商品分類按鈕搜尋
+  const handleCate = (products, productCate) => {
+    let newProducts = []
+    if (parseInt(productCate) !== 0) {
+      newProducts = products.filter((value) => {
+        return value.cate_sid === parseInt(productCate)
+      })
+    } else {
+      newProducts = [...products]
+    }
+    return newProducts
+  }
+
   // 篩選器有變動時,重新設定商品列表
   useEffect(() => {
     let newProducts = []
 
     newProducts = handleSearch(products, searchWord)
 
+    newProducts = handleCate(products, productCate)
+
     setDisplayProducts(newProducts)
-  }, [searchWord])
+  }, [searchWord, productCate])
 
   return (
     <>
@@ -78,7 +99,10 @@ function Products(props) {
           {/* 分類按鈕 */}
           <div className="pd-filter-btn-wrap">
             <div className="pd-cate d-flex mb-80">
-              <CateTag />
+              <CateTag
+                productCate={productCate}
+                setProductCate={setProductCate}
+              />
             </div>
             {/* 篩選器(關鍵字搜尋/熱量篩選) */}
             <div className="pd-filter">
