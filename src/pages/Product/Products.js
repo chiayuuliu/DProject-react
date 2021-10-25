@@ -80,14 +80,14 @@ function Products(props) {
 
     newProducts = handleSearch(products, searchWord)
 
-    newProducts = handleCate(products, productCate)
+    newProducts = handleCate(newProducts, productCate)
 
     setDisplayProducts(newProducts)
   }, [searchWord, productCate])
 
   return (
     <>
-      {/* Banner */}
+      {/* ----------Banner 元件區-------- */}
       <AllBanner />
       {/* <MaterialBanner /> */}
       {/* <WorkoutBanner /> */}
