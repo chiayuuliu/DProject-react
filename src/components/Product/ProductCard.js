@@ -2,8 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 function ProductCard(props) {
-  const { sid, name, cal, price, productId, setProductId } =
-    props
+  const { sid, name, cal, price, setProductId } = props
   return (
     <>
       <div

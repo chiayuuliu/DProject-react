@@ -44,8 +44,6 @@ function Products(props) {
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
       setPages([obj.totalPages])
-      console.log(typeof pages)
-      // console.log(pagebtn)
     })()
   }, [])
 
@@ -87,13 +85,36 @@ function Products(props) {
     setDisplayProducts(newProducts)
   }, [searchWord, productCate])
 
+  // 切換banner
+  const All = <AllBanner />
+  const Table = <TableBanner />
+  const Workout = <WorkoutBanner />
+  const Material = <MaterialBanner />
+
+  const switchBanner = (productCate) => {
+    switch (productCate) {
+      // console.log('ok')
+      case '0':
+        return All
+      case '1':
+        return Table
+      case '2':
+        return Workout
+      case '3':
+        return Material
+      default:
+        return All
+    }
+  }
+
   return (
     <>
       {/* ----------Banner 元件區-------- */}
-      <AllBanner />
+      {/* <AllBanner /> */}
       {/* <MaterialBanner /> */}
       {/* <WorkoutBanner /> */}
       {/* <TableBanner /> */}
+      <>{switchBanner(productCate)}</>
 
       {/* ---------- */}
       <div className="container">
@@ -120,7 +141,6 @@ function Products(props) {
             {displayProducts.map((v, i) => {
               return (
                 <ProductCard
-                  productId={productId}
                   setProductId={setProductId}
                   key={v.sid}
                   sid={v.sid}
