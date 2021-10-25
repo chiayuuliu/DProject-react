@@ -9,6 +9,7 @@ import conf, {
   API_HOST,
   IMG_PATH,
   Product_API,
+  ProductDetail_API,
 } from './../../config/config.js'
 
 // 組合用元件
@@ -20,13 +21,14 @@ import Detail from './../../components/Product/Detail'
 import Comments from './../../components/Product/Comments'
 
 // 細節頁
-function ProductDetail() {
+function ProductDetail(props) {
+  const { productId, setProductId } = props
   const [ProductDetail, setProductDetail] = useState([])
+
   const p = { ...ProductDetail }
-  // const [productSid, setProductSid] = useState('')
   useEffect(() => {
     ;(async () => {
-      const r = await fetch(Product_API + '/1')
+      const r = await fetch(ProductDetail_API + productId)
       const obj = await r.json()
       setProductDetail(obj.data)
       console.log(obj.data)

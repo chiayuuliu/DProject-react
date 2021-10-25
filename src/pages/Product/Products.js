@@ -23,6 +23,8 @@ import ProductCard from './../../components/Product/ProductCard'
 import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
+  // 設定商品sid for 細節頁
+  const { productId, setProductId } = props
   // 所有商品
   const [products, setProducts] = useState([])
   // 篩選後商品
@@ -118,6 +120,8 @@ function Products(props) {
             {displayProducts.map((v, i) => {
               return (
                 <ProductCard
+                  productId={productId}
+                  setProductId={setProductId}
                   key={v.sid}
                   sid={v.sid}
                   name={v.name}

@@ -2,14 +2,16 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 function ProductCard(props) {
-  const { sid, name, cal, price } = props
+  const { sid, name, cal, price, productId, setProductId } =
+    props
   return (
     <>
       <div
         className="pd-card d-flex "
         onClick={(e) => {
           console.log('key', sid)
-          props.history.push('./product-detail/' + sid)
+          setProductId(sid)
+          props.history.push('./product/' + sid)
         }}
       >
         <div className="pd-img">
