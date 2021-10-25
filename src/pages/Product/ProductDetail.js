@@ -23,6 +23,7 @@ import Comments from './../../components/Product/Comments'
 function ProductDetail() {
   const [ProductDetail, setProductDetail] = useState([])
   const p = { ...ProductDetail }
+  // const [productSid, setProductSid] = useState('')
   useEffect(() => {
     ;(async () => {
       const r = await fetch(Product_API + '/1')

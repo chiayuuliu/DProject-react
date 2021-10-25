@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 function ProductCard(props) {
   const { sid, name, cal, price } = props
@@ -7,7 +8,8 @@ function ProductCard(props) {
       <div
         className="pd-card d-flex "
         onClick={(e) => {
-          console.log('key', { sid })
+          console.log('key', sid)
+          props.history.push('./product-detail/' + sid)
         }}
       >
         <div className="pd-img">
@@ -34,4 +36,4 @@ function ProductCard(props) {
   )
 }
 
-export default ProductCard
+export default withRouter(ProductCard)
