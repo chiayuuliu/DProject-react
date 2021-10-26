@@ -7,11 +7,11 @@ function Filter(props) {
 
   return (
     <>
+      {/* 關鍵字搜尋 */}
       <div className="d-flex pd-search-wrap">
         <div className="pd-search-icon">
           <i className="fas fa-search "></i>
         </div>
-        {/* 關鍵字搜尋 */}
         <input
           type="text"
           className="pd-search-input"
@@ -35,7 +35,7 @@ function Filter(props) {
           }}
         />
       </div>
-      {/* 篩選器 */}
+      {/* 熱量篩選器 */}
       <div className="pd-radio-wrap">
         <input
           type="radio"
