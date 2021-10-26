@@ -2,11 +2,13 @@ import React from 'react'
 
 function PageBtn(props) {
   const { pages } = props
-  // const pagebtn = []
-  // let i =0
-  // for (i = 1; i < pages; i++) {
-  //   pagebtn.push(i)
-  // }
+  const pagecount = () => {
+    for (let i = 1; i < pages; i++) {
+      document.querySelector(
+        '.page'
+      ).innerHTML += `<p>${i}</p>`
+    }
+  }
   return (
     <>
       <div className="page-btn-wrap d-flex">
@@ -16,15 +18,8 @@ function PageBtn(props) {
         </div>
 
         {/* 頁數 */}
-        {/* {pagebtn.map((v) => {
-          for (i = 1; i < v; i++) {
-            console.log(v)
-            return <div className="page">{i}</div>
-          }
-        })} */}
-        <div className="page">1</div>
-        {/* <div className="page">1</div> */}
-
+        {/* {pagecount()} */}
+        <div className="page d-flex"></div>
 
         {/* 下一頁 */}
         <div className="page-next">

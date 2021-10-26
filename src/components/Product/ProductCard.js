@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 function ProductCard(props) {
-  const { sid, name, cal, price, setProductId } = props
+  const { sid, img, name, cal, price, setProductId } = props
   return (
     <>
       <div
@@ -15,7 +15,7 @@ function ProductCard(props) {
       >
         <div className="pd-img">
           <img
-            src="http://localhost:3001/img/PM001.jpg"
+            src={'http://localhost:3002/img/' + img}
             alt=""
           />
         </div>

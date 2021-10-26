@@ -66,7 +66,7 @@ function Products(props) {
     let newProducts = []
     if (parseInt(productCate) !== 0) {
       newProducts = products.filter((value) => {
-        return value.cate_sid === parseInt(productCate)
+        return value.cate_id === parseInt(productCate)
       })
     } else {
       newProducts = [...products]
@@ -144,6 +144,7 @@ function Products(props) {
                   setProductId={setProductId}
                   key={v.sid}
                   sid={v.sid}
+                  img={v.product_img}
                   name={v.name}
                   cal={v.content_cal}
                   price={v.price}
