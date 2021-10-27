@@ -14,7 +14,7 @@ function CateTag(props) {
           setProductCate(e.target.value)
         }}
       />
-      <label class="pd-all" for="all">
+      <label className="pd-all" htmlFor="all">
         全部商品
       </label>
 
@@ -28,7 +28,7 @@ function CateTag(props) {
           setProductCate(e.target.value)
         }}
       />
-      <label class="pd-table" for="table">
+      <label className="pd-table" htmlFor="table">
         快速上桌
       </label>
 
@@ -42,7 +42,7 @@ function CateTag(props) {
           setProductCate(e.target.value)
         }}
       />
-      <label class="pd-workout" for="workable">
+      <label className="pd-workout" htmlFor="workable">
         健身專區
       </label>
 
@@ -56,7 +56,7 @@ function CateTag(props) {
           setProductCate(e.target.value)
         }}
       />
-      <label class="pd-material" for="material">
+      <label className="pd-material" htmlFor="material">
         嚴選食材
       </label>
     </>

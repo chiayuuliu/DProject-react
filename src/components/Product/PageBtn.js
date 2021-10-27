@@ -1,9 +1,9 @@
 import React from 'react'
 
 function PageBtn(props) {
-  const { pages } = props
+  const { totalpages } = props
   const pagecount = () => {
-    for (let i = 1; i < pages; i++) {
+    for (let i = 1; i < totalpages; i++) {
       document.querySelector(
         '.page'
       ).innerHTML += `<p>${i}</p>`
@@ -25,7 +25,7 @@ function PageBtn(props) {
         <div className="page-next">
           <i className="fas fa-chevron-right"></i>
         </div>
-        <p className="total-page">共 {pages} 頁</p>
+        <p className="total-page">共 {totalpages} 頁</p>
       </div>
     </>
   )

@@ -1,7 +1,7 @@
 import {
   BrowserRouter as Router,
-  Route,
-  Switch,
+  Link,
+  withRouter,
 } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import conf, {
@@ -34,18 +34,23 @@ function Products(props) {
   // 商品分類標籤(radio)
   const [productCate, setProductCate] = useState('0')
   // 總頁數
-  const [pages, setPages] = useState([])
+  const [totalpages, setTotalPages] = useState('')
+  // 設定目前頁數狀態
+  const [page, setPage] = useState('1')
 
   // 要所有資料
   useEffect(() => {
     ;(async () => {
-      const r = await fetch(Product_API)
+      const r = await fetch(
+        `${Product_API}` + `${props.location.search}`
+      )
       const obj = await r.json()
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
-      setPages([obj.totalPages])
+      setTotalPages(obj.totalPages)
+      console.log('fetch2')
     })()
-  }, [])
+  }, [page])
 
   // 關鍵字搜尋
   const handleSearch = (products, searchWord) => {
@@ -154,11 +159,20 @@ function Products(props) {
           </div>
 
           {/* 頁碼 */}
-          <PageBtn pages={pages} />
+          <PageBtn totalpages={totalpages} />
+          <Link
+            to="?page=2"
+            onClick={(e) => {
+              console.log('page2')
+              setPage(2)
+            }}
+          >
+            <p>第二頁</p>
+          </Link>
         </div>
       </div>
     </>
   )
 }
 
-export default Products
+export default withRouter(Products)
