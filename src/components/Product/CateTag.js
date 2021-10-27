@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Link,
+  withRouter,
+} from 'react-router-dom'
 
 function CateTag(props) {
   const { productCate, setProductCate } = props
@@ -9,9 +14,9 @@ function CateTag(props) {
         name="pd-cate"
         id="all"
         value="0"
-        checked={productCate === '0'}
-        onChange={(e) => {
+        onClick={(e) => {
           setProductCate(e.target.value)
+          props.history.push('./')
         }}
       />
       <label className="pd-all" htmlFor="all">
@@ -23,9 +28,9 @@ function CateTag(props) {
         name="pd-cate"
         id="table"
         value="1"
-        checked={productCate === '1'}
-        onChange={(e) => {
+        onClick={(e) => {
           setProductCate(e.target.value)
+          props.history.push('./?cate=1')
         }}
       />
       <label className="pd-table" htmlFor="table">
@@ -37,9 +42,9 @@ function CateTag(props) {
         name="pd-cate"
         id="workable"
         value="2"
-        checked={productCate === '2'}
-        onChange={(e) => {
+        onClick={(e) => {
           setProductCate(e.target.value)
+          props.history.push('./?cate=2')
         }}
       />
       <label className="pd-workout" htmlFor="workable">
@@ -51,9 +56,9 @@ function CateTag(props) {
         name="pd-cate"
         id="material"
         value="3"
-        checked={productCate === '3'}
-        onChange={(e) => {
+        onClick={(e) => {
           setProductCate(e.target.value)
+          props.history.push('./?cate=3')
         }}
       />
       <label className="pd-material" htmlFor="material">
@@ -63,4 +68,4 @@ function CateTag(props) {
   )
 }
 
-export default CateTag
+export default withRouter(CateTag)

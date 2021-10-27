@@ -36,7 +36,7 @@ function Products(props) {
   // 總頁數
   const [totalpages, setTotalPages] = useState('')
   // 設定目前頁數狀態
-  const [page, setPage] = useState('1')
+  const [nowpage, setNowPage] = useState('1')
 
   // 要所有資料
   useEffect(() => {
@@ -50,45 +50,45 @@ function Products(props) {
       setTotalPages(obj.totalPages)
       console.log('fetch2')
     })()
-  }, [page])
+  }, [nowpage, productCate])
 
   // 關鍵字搜尋
-  const handleSearch = (products, searchWord) => {
-    let newProducts = []
+  // const handleSearch = (products, searchWord) => {
+  //   let newProducts = []
 
-    if (searchWord) {
-      newProducts = products.filter((value) => {
-        return value.name.includes(searchWord)
-      })
-    } else {
-      newProducts = [...products]
-    }
-    return newProducts
-  }
+  //   if (searchWord) {
+  //     newProducts = products.filter((value) => {
+  //       return value.name.includes(searchWord)
+  //     })
+  //   } else {
+  //     newProducts = [...products]
+  //   }
+  //   return newProducts
+  // }
 
   // 商品分類按鈕搜尋
-  const handleCate = (products, productCate) => {
-    let newProducts = []
-    if (parseInt(productCate) !== 0) {
-      newProducts = products.filter((value) => {
-        return value.cate_id === parseInt(productCate)
-      })
-    } else {
-      newProducts = [...products]
-    }
-    return newProducts
-  }
+  // const handleCate = (products, productCate) => {
+  //   let newProducts = []
+  //   if (parseInt(productCate) !== 0) {
+  //     newProducts = products.filter((value) => {
+  //       return value.cate_id === parseInt(productCate)
+  //     })
+  //   } else {
+  //     newProducts = [...products]
+  //   }
+  //   return newProducts
+  // }
 
   // 篩選器有變動時,重新設定商品列表
-  useEffect(() => {
-    let newProducts = []
+  // useEffect(() => {
+  //   let newProducts = []
 
-    newProducts = handleSearch(products, searchWord)
+  //   newProducts = handleSearch(products, searchWord)
 
-    newProducts = handleCate(newProducts, productCate)
+  //   newProducts = handleCate(newProducts, productCate)
 
-    setDisplayProducts(newProducts)
-  }, [searchWord, productCate])
+  //   setDisplayProducts(newProducts)
+  // }, [searchWord, productCate])
 
   // 切換banner
   const All = <AllBanner />
@@ -159,8 +159,12 @@ function Products(props) {
           </div>
 
           {/* 頁碼 */}
-          <PageBtn totalpages={totalpages} />
-          <Link
+          <PageBtn
+            totalpages={totalpages}
+            setNowPage={setNowPage}
+          />
+
+          {/* <Link
             to="?page=2"
             onClick={(e) => {
               console.log('page2')
@@ -168,7 +172,7 @@ function Products(props) {
             }}
           >
             <p>第二頁</p>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </>
