@@ -96,6 +96,7 @@ function Products(props) {
   const Workout = <WorkoutBanner />
   const Material = <MaterialBanner />
 
+  // 換分類banner
   const switchBanner = (productCate) => {
     switch (productCate) {
       // console.log('ok')
@@ -160,6 +161,7 @@ function Products(props) {
 
           {/* 頁碼 */}
           <PageBtn
+            nowpage={nowpage}
             totalpages={totalpages}
             setNowPage={setNowPage}
           />
