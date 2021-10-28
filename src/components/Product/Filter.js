@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  withRouter,
+} from 'react-router-dom'
 
 function Filter(props) {
   const [input, setInput] = useState('')
-  const { searchWord, setSearchWord, filter, setFilter } =
-    props
+  const {
+    setSearchWord,
+    filter,
+    setFilter,
+    setProductCate,
+  } = props
 
   return (
     <>
@@ -20,15 +28,30 @@ function Filter(props) {
           // 輸入框狀態改變時設定回值
           onChange={(e) => {
             setInput(e.target.value)
-            console.log(e.target.value)
+            // 如果沒有關鍵字, 回到全部商品
             if (!e.target.value) {
               setSearchWord('')
+              props.history.push('/products/?cate=0')
+              // setProductCate('0')
             }
           }}
+          // 按enter之後
           onKeyDown={(e) => {
-            // 在輸入框按下enter,再把內容設定回狀態
-            if (e.keyCode === 13) {
-              setSearchWord(input)
+            // 如果有關鍵字
+            if (e.target.value) {
+              if (e.keyCode === 13) {
+                setSearchWord(input)
+                const keyword = e.target.value
+                props.history.push(
+                  '/products/?keyword=' + `${keyword}`
+                )
+              }
+            }
+            // 如果沒有關鍵字
+            if (!e.target.value) {
+              setSearchWord('')
+              props.history.push('/products/?cate=0')
+              setProductCate('0')
             }
           }}
         />
@@ -76,4 +99,4 @@ function Filter(props) {
     </>
   )
 }
-export default Filter
+export default withRouter(Filter)

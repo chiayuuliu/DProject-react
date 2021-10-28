@@ -37,21 +37,59 @@ function Products(props) {
   const searchParams = new URLSearchParams(
     props.location.search
   )
-  console.log(searchParams.get('cate'))
+  // console.log(searchParams.get('cate'))
   // // 要所有資料
   useEffect(() => {
     ;(async () => {
       const r = await fetch(
         `${Product_API}` + `${props.location.search}`
       )
-      console.log(props.location.search)
       const obj = await r.json()
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
       setTotalPages(obj.totalPages)
-      console.log('fetch')
+      console.log('無相依性')
     })()
-  }, [nowpage, productCate])
+  }, [])
+
+  useEffect(() => {
+    ;(async () => {
+      const r = await fetch(
+        `${Product_API}` + `${props.location.search}`
+      )
+      const obj = await r.json()
+      setProducts(obj.rows)
+      setDisplayProducts(obj.rows)
+      setTotalPages(obj.totalPages)
+      console.log('相依性頁數')
+    })()
+  }, [nowpage])
+
+  useEffect(() => {
+    ;(async () => {
+      const r = await fetch(
+        `${Product_API}` + `${props.location.search}`
+      )
+      const obj = await r.json()
+      setProducts(obj.rows)
+      setDisplayProducts(obj.rows)
+      setTotalPages(obj.totalPages)
+      console.log('相依性分類')
+    })()
+  }, [productCate])
+
+  // 關鍵字
+  useEffect(() => {
+    ;(async () => {
+      const r = await fetch(
+        `${Product_API}` + `${props.location.search}`
+      )
+      const obj = await r.json()
+      setDisplayProducts(obj.rows)
+      setTotalPages(obj.totalPages)
+      console.log('相依性關鍵字')
+    })()
+  }, [searchWord])
 
   // 關鍵字搜尋
   // const handleSearch = (products, searchWord) => {
@@ -141,6 +179,7 @@ function Products(props) {
                 setFilter={setFilter}
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
+                setProductCate={setProductCate}
               />
             </div>
           </div>

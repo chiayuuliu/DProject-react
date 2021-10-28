@@ -8,13 +8,12 @@ function PageBtn(props) {
   for (let i = 1; i <= totalpages; i++) {
     page.push(i)
   }
-
+  // 解析路徑上的分類號
   const searchCateParams = new URLSearchParams(
     props.location.search
   )
-  // 解析路徑上的分類號
+  // 取的分類號
   const searchCate = searchCateParams.get('cate')
-  // console.log(searchCate)
 
   return (
     <>

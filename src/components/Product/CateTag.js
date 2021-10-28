@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Link,
   withRouter,
 } from 'react-router-dom'
 
@@ -14,6 +13,7 @@ function CateTag(props) {
         name="pd-cate"
         id="all"
         value="0"
+        checked={productCate === '0'}
         onClick={(e) => {
           setProductCate(e.target.value)
           props.history.push('/products/?cate=0')
@@ -28,6 +28,7 @@ function CateTag(props) {
         name="pd-cate"
         id="table"
         value="1"
+        checked={productCate === '1'}
         onClick={(e) => {
           setProductCate(e.target.value)
           props.history.push('/products/?cate=1')
@@ -42,6 +43,7 @@ function CateTag(props) {
         name="pd-cate"
         id="workable"
         value="2"
+        checked={productCate === '2'}
         onClick={(e) => {
           setProductCate(e.target.value)
           props.history.push('/products/?cate=2')
@@ -56,6 +58,7 @@ function CateTag(props) {
         name="pd-cate"
         id="material"
         value="3"
+        checked={productCate === '3'}
         onClick={(e) => {
           setProductCate(e.target.value)
           props.history.push('/products/?cate=3')

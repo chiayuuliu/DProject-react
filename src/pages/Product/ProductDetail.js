@@ -1,14 +1,5 @@
-// 使用套件
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import conf, {
-  API_HOST,
-  IMG_PATH,
-  Product_API,
   ProductDetail_API,
 } from './../../config/config.js'
 
@@ -22,7 +13,7 @@ import Comments from './../../components/Product/Comments'
 
 // 細節頁
 function ProductDetail(props) {
-  const { productId, setProductId } = props
+  const { productId } = props
   const [ProductDetail, setProductDetail] = useState([])
 
   const p = { ...ProductDetail }
