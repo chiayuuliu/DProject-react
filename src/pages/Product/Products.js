@@ -34,7 +34,11 @@ function Products(props) {
   // 篩選radio
   const [filter, setFilter] = useState('')
 
-  // 要所有資料
+  const searchParams = new URLSearchParams(
+    props.location.search
+  )
+  console.log(searchParams.get('cate'))
+  // // 要所有資料
   useEffect(() => {
     ;(async () => {
       const r = await fetch(
@@ -45,6 +49,7 @@ function Products(props) {
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
       setTotalPages(obj.totalPages)
+      console.log('fetch')
     })()
   }, [nowpage, productCate])
 

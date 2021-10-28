@@ -22,7 +22,6 @@ function App() {
       <>
         <Switch>
           {/* 商品頁 */}
-          {/* (TBA)其他頁面路由/cate=1,/cate=2,/cate=3 */}
           <Route path="/products">
             <Products
               productId={productId}
