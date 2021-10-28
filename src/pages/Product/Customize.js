@@ -1,37 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProductCard from './../../components/Product/ProductCard'
+import Target from '../../components/Product/Target'
 function Customize(props) {
+  const [target, setTarget] = useState('')
+  const [exercises, setExercises] = useState('')
   return (
     <>
       <div className="pd-client-banner d-flex">
         <div className="pd-target-wrap d-flex col-lg-7 col-md-12">
-          <h1>我想要...</h1>
-          <div className="pd-target d-flex">
-            <div className="pd-gain-wrap mlr">
-              <button className="pd-gain"></button>
-              <p>增肌減脂</p>
-            </div>
-            <div className="pd-slim-wrap mlr">
-              <button className="pd-slim "></button>
-              <p>變瘦</p>
-            </div>
-          </div>
-          <h1>我每周運動...</h1>
-          <div className="pd-target d-flex">
-            <div className="pd-five-wrap">
-              <button className="pd-five"></button>
-              <p>五次以上</p>
-            </div>
-            <div className="pd-three-wrap">
-              <button className="pd-three"></button>
-              <p>三次左右</p>
-            </div>
-            <div className="pd-none-wrap">
-              <button className="pd-none"></button>
-              <p>不運動</p>
-            </div>
-          </div>
+          {/* 左區-運動目標+習慣------- */}
+          <Target
+            target={target}
+            setTarget={setTarget}
+            exercises={exercises}
+            setExercises={setExercises}
+          />
         </div>
+        {/* 右區-使用者資料------- */}
         <div className="pd-client-wrap d-flex col-lg-5 col-md12">
           <div className="pd-client-info d-flex">
             <div>

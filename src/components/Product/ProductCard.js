@@ -10,7 +10,7 @@ function ProductCard(props) {
         onClick={(e) => {
           console.log('key', sid)
           setProductId(sid)
-          props.history.push('./product/' + sid)
+          props.history.push('/product/' + sid)
         }}
       >
         <div className="pd-img">

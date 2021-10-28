@@ -18,7 +18,7 @@ function PageBtn(props) {
           onClick={() => {
             if (nowpage > 1)
               setNowPage(parseInt(nowpage) - 1)
-            props.history.push('?page=' + nowpage)
+            props.history.push('&?page=' + nowpage)
           }}
         >
           <i className="fas fa-chevron-left"></i>
@@ -50,7 +50,7 @@ function PageBtn(props) {
           onClick={() => {
             if (nowpage < totalpages)
               setNowPage(parseInt(nowpage) + 1)
-            props.history.push('?page=' + nowpage)
+            props.history.push(+'?page=' + nowpage)
           }}
         >
           <i className="fas fa-chevron-right"></i>

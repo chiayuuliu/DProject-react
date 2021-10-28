@@ -21,7 +21,7 @@ function App() {
     <Router>
       <>
         <Switch>
-        {/* 商品頁 */}
+          {/* 商品頁 */}
           {/* (TBA)其他頁面路由/cate=1,/cate=2,/cate=3 */}
           <Route path="/products">
             <Products
@@ -37,7 +37,7 @@ function App() {
               setProductId={setProductId}
             />
           </Route>
-          
+
           {/* 客製化推薦 */}
           {/* 選不同的路由要變??? */}
           <Route path="/customize">

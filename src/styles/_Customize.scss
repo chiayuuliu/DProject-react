@@ -20,8 +20,8 @@ nav {
   border: 2px solid #8fc065;
   border-radius: 50%;
   background-color: white;
+  cursor: pointer;
   &:focus {
-    // outline: #fb6107;
     outline-color: #fb6107;
   }
 }
@@ -88,6 +88,11 @@ nav {
 .pd-none-wrap {
   text-align: center;
   margin: auto 20px;
+}
+
+.pd-cusClick {
+  border: 4px solid #fb6107;
+  box-shadow: 4px 4px 10px lightgray;
 }
 /* 右區 */
 .pd-client-wrap {

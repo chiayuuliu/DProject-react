@@ -16,7 +16,7 @@ function CateTag(props) {
         value="0"
         onClick={(e) => {
           setProductCate(e.target.value)
-          props.history.push('./')
+          props.history.push('/products/?cate=0')
         }}
       />
       <label className="pd-all" htmlFor="all">
@@ -30,7 +30,7 @@ function CateTag(props) {
         value="1"
         onClick={(e) => {
           setProductCate(e.target.value)
-          props.history.push('./?cate=1')
+          props.history.push('/products/?cate=1')
         }}
       />
       <label className="pd-table" htmlFor="table">
@@ -44,7 +44,7 @@ function CateTag(props) {
         value="2"
         onClick={(e) => {
           setProductCate(e.target.value)
-          props.history.push('./?cate=2')
+          props.history.push('/products/?cate=2')
         }}
       />
       <label className="pd-workout" htmlFor="workable">
@@ -58,7 +58,7 @@ function CateTag(props) {
         value="3"
         onClick={(e) => {
           setProductCate(e.target.value)
-          props.history.push('./?cate=3')
+          props.history.push('/products/?cate=3')
         }}
       />
       <label className="pd-material" htmlFor="material">

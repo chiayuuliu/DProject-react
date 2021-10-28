@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 function Filter(props) {
   const [input, setInput] = useState('')
-  const { searchWord, setSearchWord } = props
-  const { filter, setFilter } = props
+  const { searchWord, setSearchWord, filter, setFilter } =
+    props
 
   return (
     <>
@@ -23,13 +23,11 @@ function Filter(props) {
             console.log(e.target.value)
             if (!e.target.value) {
               setSearchWord('')
-              console.log(!e.target.value)
             }
           }}
           onKeyDown={(e) => {
-            // 在輸入框按下enter,把內容設定回狀態
+            // 在輸入框按下enter,再把內容設定回狀態
             if (e.keyCode === 13) {
-              console.log(input)
               setSearchWord(input)
             }
           }}

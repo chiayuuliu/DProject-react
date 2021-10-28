@@ -1,17 +1,11 @@
 import {
   BrowserRouter as Router,
-  Link,
   withRouter,
 } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import conf, {
-  API_HOST,
-  IMG_PATH,
-  Product_API,
-} from './../../config/config.js'
+import conf, { Product_API } from './../../config/config.js'
 
 // 組合用元件
-// Banner
 import AllBanner from './../../components/Product/AllBanner'
 import MaterialBanner from '../../components/Product/MaterialBanner'
 import WorkoutBanner from '../../components/Product/WorkoutBanner'
@@ -37,6 +31,8 @@ function Products(props) {
   const [totalpages, setTotalPages] = useState('')
   // 設定目前頁數狀態
   const [nowpage, setNowPage] = useState('1')
+  // 篩選radio
+  const [filter, setFilter] = useState('')
 
   // 要所有資料
   useEffect(() => {
@@ -44,11 +40,11 @@ function Products(props) {
       const r = await fetch(
         `${Product_API}` + `${props.location.search}`
       )
+      console.log(props.location.search)
       const obj = await r.json()
       setProducts(obj.rows)
       setDisplayProducts(obj.rows)
       setTotalPages(obj.totalPages)
-      console.log('fetch2')
     })()
   }, [nowpage, productCate])
 
@@ -136,6 +132,8 @@ function Products(props) {
             {/* 篩選器(關鍵字搜尋/熱量篩選) */}
             <div className="pd-filter">
               <Filter
+                filter={filter}
+                setFilter={setFilter}
                 searchWord={searchWord}
                 setSearchWord={setSearchWord}
               />
@@ -165,16 +163,6 @@ function Products(props) {
             totalpages={totalpages}
             setNowPage={setNowPage}
           />
-
-          {/* <Link
-            to="?page=2"
-            onClick={(e) => {
-              console.log('page2')
-              setPage(2)
-            }}
-          >
-            <p>第二頁</p>
-          </Link> */}
         </div>
       </div>
     </>
