@@ -170,6 +170,7 @@ function Products(props) {
               <CateTag
                 productCate={productCate}
                 setProductCate={setProductCate}
+                setSearchWord={setSearchWord}
               />
             </div>
             {/* 篩選器(關鍵字搜尋/熱量篩選) */}

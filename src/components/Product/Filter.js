@@ -7,12 +7,15 @@ import {
 function Filter(props) {
   const [input, setInput] = useState('')
   const {
+    searchWord,
     setSearchWord,
     filter,
     setFilter,
     setProductCate,
   } = props
-
+  // if (searchWord == '') {
+  //   setInput('')
+  // }
   return (
     <>
       {/* 關鍵字搜尋 */}
@@ -31,8 +34,8 @@ function Filter(props) {
             // 如果沒有關鍵字, 回到全部商品
             if (!e.target.value) {
               setSearchWord('')
+              setProductCate('0')
               props.history.push('/products/?cate=0')
-              // setProductCate('0')
             }
           }}
           // 按enter之後
@@ -41,13 +44,13 @@ function Filter(props) {
             if (e.target.value) {
               if (e.keyCode === 13) {
                 setSearchWord(input)
+                setProductCate('0')
                 const keyword = e.target.value
                 props.history.push(
                   '/products/?keyword=' + `${keyword}`
                 )
-              }
+              } // 如果沒有關鍵字
             }
-            // 如果沒有關鍵字
             if (!e.target.value) {
               setSearchWord('')
               props.history.push('/products/?cate=0')

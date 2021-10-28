@@ -5,7 +5,8 @@ import {
 } from 'react-router-dom'
 
 function CateTag(props) {
-  const { productCate, setProductCate } = props
+  const { productCate, setProductCate, setSearchWord } =
+    props
   return (
     <>
       <input
@@ -16,6 +17,7 @@ function CateTag(props) {
         checked={productCate === '0'}
         onClick={(e) => {
           setProductCate(e.target.value)
+          setSearchWord('')
           props.history.push('/products/?cate=0')
         }}
       />
@@ -31,6 +33,7 @@ function CateTag(props) {
         checked={productCate === '1'}
         onClick={(e) => {
           setProductCate(e.target.value)
+          setSearchWord('')
           props.history.push('/products/?cate=1')
         }}
       />
@@ -46,6 +49,7 @@ function CateTag(props) {
         checked={productCate === '2'}
         onClick={(e) => {
           setProductCate(e.target.value)
+          setSearchWord('')
           props.history.push('/products/?cate=2')
         }}
       />
@@ -61,6 +65,7 @@ function CateTag(props) {
         checked={productCate === '3'}
         onClick={(e) => {
           setProductCate(e.target.value)
+          setSearchWord('')
           props.history.push('/products/?cate=3')
         }}
       />
