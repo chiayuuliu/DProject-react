@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-// const TargetTag = [
-//   {
-//     增肌減脂:
-//       'http://localhost:3000/img/商城img/客製化/增肌減脂.jpg',
-//   },
-//   {
-//     變瘦: 'http://localhost:3000/img/商城img/客製化/變瘦.jpg',
-//   },
-// ]
+import React from 'react'
 
 function Target(props) {
-  const { target, setTarget, exercises, setExercises } =
-    props
+  const { setTarget, setExercises } = props
+  // 移除target選中CSS
+  const removeTargetCss = (e) => {
+    const all = document.querySelectorAll('.pd-targetImg')
+    for (let i = 0; i < all.length; i++) {
+      all[i].classList.remove('pd-cusClick')
+    }
+    e.classList.add('pd-cusClick')
+  }
+  // 移除運動習慣CSS
+  const removeTimesCss = (e) => {
+    const all = document.querySelectorAll('.pd-timesImg')
+    for (let i = 0; i < all.length; i++) {
+      all[i].classList.remove('pd-cusClick')
+    }
+    e.classList.add('pd-cusClick')
+  }
   return (
     <>
       {/* 運動目標------------------- */}
@@ -19,14 +25,10 @@ function Target(props) {
       <div className="pd-target d-flex">
         <div className="pd-gain-wrap mlr">
           <div
-            className="pd-gain pd-target"
+            className="pd-gain pd-targetImg"
             onClick={(e) => {
               setTarget('增肌減脂')
-              e.target.classList.add('pd-cusClick')
-              document
-                .querySelectorAll('pd-target')
-                .classList.remove('pd-cusClick')
-              
+              removeTargetCss(e.target)
             }}
           ></div>
           <p>增肌減脂</p>
@@ -34,10 +36,10 @@ function Target(props) {
 
         <div className="pd-slim-wrap mlr">
           <div
-            className="pd-slim pd-target"
+            className="pd-slim pd-targetImg"
             onClick={(e) => {
               setTarget('變瘦')
-              e.target.classList.add('pd-cusClick')
+              removeTargetCss(e.target)
             }}
           ></div>
           <p>變瘦</p>
@@ -48,30 +50,30 @@ function Target(props) {
       <div className="pd-target d-flex">
         <div className="pd-five-wrap">
           <div
-            className="pd-five"
+            className="pd-five pd-timesImg"
             onClick={(e) => {
               setExercises('五次以上')
-              e.target.classList.add('pd-cusClick')
+              removeTimesCss(e.target)
             }}
           ></div>
           <p>五次以上</p>
         </div>
         <div className="pd-three-wrap">
           <div
-            className="pd-three"
+            className="pd-three pd-timesImg"
             onClick={(e) => {
               setExercises('三次左右')
-              e.target.classList.add('pd-cusClick')
+              removeTimesCss(e.target)
             }}
           ></div>
           <p>三次左右</p>
         </div>
         <div className="pd-none-wrap">
           <div
-            className="pd-none"
+            className="pd-none pd-timesImg"
             onClick={(e) => {
               setExercises('不運動')
-              e.target.classList.add('pd-cusClick')
+              removeTimesCss(e.target)
             }}
           ></div>
           <p>不運動</p>
