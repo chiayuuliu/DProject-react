@@ -12,9 +12,11 @@ function PageBtn(props) {
   const searchCateParams = new URLSearchParams(
     props.location.search
   )
-  // 取的分類號
+  // 取的分類號,關鍵字搜尋會是null
   const searchCate = searchCateParams.get('cate')
+  const searchKeyword = searchCateParams.get('keyword')
 
+  // console.log(searchKeyword)
   return (
     <>
       <div className="page-btn-wrap d-flex">
@@ -36,10 +38,19 @@ function PageBtn(props) {
         <div className="page d-flex">
           {/* 把頁數map出來, click同時設定頁數狀態 */}
           {page.map((v, i) => {
+            {/* 如果有分類搜尋 */}
+            const usp = new URLSearchParams({'page': v});
+            if(searchCate){
+              usp.set('cate', searchCate);
+            }
+            if(searchKeyword){
+              usp.set('keyword', searchKeyword);
+            }
+
             return (
               <div key={i}>
                 <Link
-                  to={`?cate=${searchCate}&` + 'page=' + v}
+                  to={`?${usp.toString()}`}
                   onClick={(e) => {
                     setNowPage(v)
                     console.log('nopage', v)
@@ -49,17 +60,29 @@ function PageBtn(props) {
                 </Link>
               </div>
             )
+            
           })}
         </div>
         {/* 下一頁 */}
         <div
           className="page-next"
           onClick={() => {
-            if (nowpage < totalpages)
-              setNowPage(parseInt(nowpage) + 1)
-            props.history.push(
-              `?cate=${searchCate}` + '&page=' + nowpage
-            )
+            if (nowpage < totalpages){
+              const np = parseInt(nowpage) + 1;
+              setNowPage(np)
+              const usp = new URLSearchParams({'page': np});
+              if(searchCate){
+                usp.set('cate', searchCate);
+              }
+              if(searchKeyword){
+                usp.set('keyword', searchKeyword);
+              }
+              props.history.push(
+                `?${usp.toString()}`
+              )
+
+            }
+
           }}
         >
           <i className="fas fa-chevron-right"></i>

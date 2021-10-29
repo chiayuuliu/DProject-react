@@ -17,6 +17,10 @@ import ProductCard from './../../components/Product/ProductCard'
 import PageBtn from './../../components/Product/PageBtn'
 
 function Products(props) {
+  
+  const searchParams = new URLSearchParams(
+    props.location.search
+  )
   // 設定商品sid for 細節頁
   const { productId, setProductId } = props
   // 所有商品
@@ -24,22 +28,28 @@ function Products(props) {
   // 篩選後商品
   const [displayProducts, setDisplayProducts] = useState([])
   // 關鍵字搜尋狀態
-  const [searchWord, setSearchWord] = useState('')
+  const [searchWord, setSearchWord] = useState(searchParams.get('keyword') || '')
   // 商品分類標籤(radio)
-  const [productCate, setProductCate] = useState('0')
+  const [productCate, setProductCate] = useState(searchParams.get('cate') || '0')
   // 總頁數
   const [totalpages, setTotalPages] = useState('')
   // 設定目前頁數狀態
-  const [nowpage, setNowPage] = useState('1')
+  const [nowpage, setNowPage] = useState( searchParams.get('page') || 1)
   // 篩選radio
   const [filter, setFilter] = useState('')
+  
+  const sp = searchParams.toString()
 
-  const searchParams = new URLSearchParams(
-    props.location.search
-  )
-  // console.log(searchParams.get('cate'))
+  console.log(searchParams.toString())
+
+  // 跳轉頁面都會觸發
+  useEffect(() => {
+    console.log('123')
+  }, [sp])
+
   // // 要所有資料
   useEffect(() => {
+    
     ;(async () => {
       const r = await fetch(
         `${Product_API}` + `${props.location.search}`
@@ -50,46 +60,46 @@ function Products(props) {
       setTotalPages(obj.totalPages)
       console.log('無相依性')
     })()
-  }, [])
+  }, [nowpage,productCate,searchWord])
 
-  useEffect(() => {
-    ;(async () => {
-      const r = await fetch(
-        `${Product_API}` + `${props.location.search}`
-      )
-      const obj = await r.json()
-      setProducts(obj.rows)
-      setDisplayProducts(obj.rows)
-      setTotalPages(obj.totalPages)
-      console.log('相依性頁數')
-    })()
-  }, [nowpage])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     const r = await fetch(
+  //       `${Product_API}` + `${props.location.search}`
+  //     )
+  //     const obj = await r.json()
+  //     setProducts(obj.rows)
+  //     setDisplayProducts(obj.rows)
+  //     setTotalPages(obj.totalPages)
+  //     console.log('相依性頁數')
+  //   })()
+  // }, [nowpage])
 
-  useEffect(() => {
-    ;(async () => {
-      const r = await fetch(
-        `${Product_API}` + `${props.location.search}`
-      )
-      const obj = await r.json()
-      setProducts(obj.rows)
-      setDisplayProducts(obj.rows)
-      setTotalPages(obj.totalPages)
-      console.log('相依性分類')
-    })()
-  }, [productCate])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     const r = await fetch(
+  //       `${Product_API}` + `${props.location.search}`
+  //     )
+  //     const obj = await r.json()
+  //     setProducts(obj.rows)
+  //     setDisplayProducts(obj.rows)
+  //     setTotalPages(obj.totalPages)
+  //     console.log('相依性分類')
+  //   })()
+  // }, [productCate])
 
   // 關鍵字
-  useEffect(() => {
-    ;(async () => {
-      const r = await fetch(
-        `${Product_API}` + `${props.location.search}`
-      )
-      const obj = await r.json()
-      setDisplayProducts(obj.rows)
-      setTotalPages(obj.totalPages)
-      console.log('相依性關鍵字')
-    })()
-  }, [searchWord])
+  // useEffect(() => {
+  //   ;(async () => {
+  //     const r = await fetch(
+  //       `${Product_API}` + `${props.location.search}`
+  //     )
+  //     const obj = await r.json()
+  //     setDisplayProducts(obj.rows)
+  //     setTotalPages(obj.totalPages)
+  //     console.log('相依性關鍵字')
+  //   })()
+  // }, [searchWord])
 
   // 關鍵字搜尋
   // const handleSearch = (products, searchWord) => {
