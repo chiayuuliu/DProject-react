@@ -37,12 +37,6 @@ function PageBtn(props) {
                 `?${usp.toString()}`
               ) 
             }
-
-            //   setNowPage(parseInt(nowpage) - 1)
-            // console.log('前一頁', nowpage)
-            // props.history.push(
-            //   `?cate=${searchCate}` + '&page=' + nowpage
-            // )
           }}
         >
           <i className="fas fa-chevron-left"></i>

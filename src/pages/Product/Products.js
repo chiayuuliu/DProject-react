@@ -40,10 +40,7 @@ function Products(props) {
   
   // 解析URL參數
   const sp = searchParams.toString()
-  // console.log(searchParams.toString())
-
-  // const searchCate = searchCateParams.get('cate')
-  // const searchKeyword = searchCateParams.get('keyword')
+  
   // 當跳頁的時候把URL參數設定回狀態
   const setUpdateState = ()=>{
     const cate = searchParams.get('cate')
@@ -56,7 +53,6 @@ function Products(props) {
   // 跳轉頁面都會觸發
   useEffect(() => {
     setUpdateState()
-    console.log('123')
   }, [sp])
 
 
@@ -73,85 +69,9 @@ function Products(props) {
       setTotalPages(obj.totalPages)
       console.log('無相依性')
     })()
-  }, [nowpage,productCate,searchWord])
+  }, [nowpage,productCate,searchWord,filter])
 
-  // useEffect(() => {
-  //   ;(async () => {
-  //     const r = await fetch(
-  //       `${Product_API}` + `${props.location.search}`
-  //     )
-  //     const obj = await r.json()
-  //     setProducts(obj.rows)
-  //     setDisplayProducts(obj.rows)
-  //     setTotalPages(obj.totalPages)
-  //     console.log('相依性頁數')
-  //   })()
-  // }, [nowpage])
-
-  // useEffect(() => {
-  //   ;(async () => {
-  //     const r = await fetch(
-  //       `${Product_API}` + `${props.location.search}`
-  //     )
-  //     const obj = await r.json()
-  //     setProducts(obj.rows)
-  //     setDisplayProducts(obj.rows)
-  //     setTotalPages(obj.totalPages)
-  //     console.log('相依性分類')
-  //   })()
-  // }, [productCate])
-
-  // 關鍵字
-  // useEffect(() => {
-  //   ;(async () => {
-  //     const r = await fetch(
-  //       `${Product_API}` + `${props.location.search}`
-  //     )
-  //     const obj = await r.json()
-  //     setDisplayProducts(obj.rows)
-  //     setTotalPages(obj.totalPages)
-  //     console.log('相依性關鍵字')
-  //   })()
-  // }, [searchWord])
-
-  // 關鍵字搜尋
-  // const handleSearch = (products, searchWord) => {
-  //   let newProducts = []
-
-  //   if (searchWord) {
-  //     newProducts = products.filter((value) => {
-  //       return value.name.includes(searchWord)
-  //     })
-  //   } else {
-  //     newProducts = [...products]
-  //   }
-  //   return newProducts
-  // }
-
-  // 商品分類按鈕搜尋
-  // const handleCate = (products, productCate) => {
-  //   let newProducts = []
-  //   if (parseInt(productCate) !== 0) {
-  //     newProducts = products.filter((value) => {
-  //       return value.cate_id === parseInt(productCate)
-  //     })
-  //   } else {
-  //     newProducts = [...products]
-  //   }
-  //   return newProducts
-  // }
-
-  // 篩選器有變動時,重新設定商品列表
-  // useEffect(() => {
-  //   let newProducts = []
-
-  //   newProducts = handleSearch(products, searchWord)
-
-  //   newProducts = handleCate(newProducts, productCate)
-
-  //   setDisplayProducts(newProducts)
-  // }, [searchWord, productCate])
-
+ 
   // 切換banner
   const All = <AllBanner />
   const Table = <TableBanner />
@@ -194,6 +114,7 @@ function Products(props) {
                 productCate={productCate}
                 setProductCate={setProductCate}
                 setSearchWord={setSearchWord}
+                setFilter={setFilter}
               />
             </div>
             {/* 篩選器(關鍵字搜尋/熱量篩選) */}

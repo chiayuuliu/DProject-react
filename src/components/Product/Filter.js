@@ -13,9 +13,7 @@ function Filter(props) {
     setFilter,
     setProductCate,
   } = props
-  // if (searchWord == '') {
-  //   setInput('')
-  // }
+
   return (
     <>
       {/* 關鍵字搜尋 */}
@@ -69,6 +67,7 @@ function Filter(props) {
           checked={filter === '低熱量'}
           onChange={(e) => {
             setFilter(e.target.value)
+            props.history.push('/products/?cate=0&filter=低熱量')
           }}
         />
         <label htmlFor="low">低熱量優先</label>
@@ -82,6 +81,7 @@ function Filter(props) {
           checked={filter === '高蛋白'}
           onChange={(e) => {
             setFilter(e.target.value)
+            props.history.push('/products/?cate=0&filter=高蛋白')
           }}
         />
         <label htmlFor="hight">高蛋白優先</label>
@@ -95,6 +95,7 @@ function Filter(props) {
           checked={filter === '低醣'}
           onChange={(e) => {
             setFilter(e.target.value)
+            props.history.push('/products/?cate=0&filter=低醣')
           }}
         />
         <label htmlFor="lowsugar">低醣料理</label>
