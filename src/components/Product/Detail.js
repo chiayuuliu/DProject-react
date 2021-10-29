@@ -6,7 +6,7 @@ const Detail = (props) => {
     <>
       <div className="dt-product-img col-md-12 col-lg-6">
         <img
-          src={'http://localhost:3002/img/' + detailImg}
+          src={'http://localhost:3002/img/Product/' + detailImg}
           alt=""
         />
       </div>

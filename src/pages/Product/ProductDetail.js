@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import conf, {
-  ProductDetail_API,
+  ProductDetail_API,IMG_PATH,
 } from './../../config/config.js'
 
 // 組合用元件

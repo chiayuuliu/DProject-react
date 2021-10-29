@@ -18,7 +18,7 @@ const ProductWrap = (props) => {
         <div className="dt-bgimg">
           {/* 商品大圖 */}
           <img
-            src={'http://localhost:3002/img/' + img}
+            src={'http://localhost:3002/img/Product/' + img}
             alt=""
           />
         </div>

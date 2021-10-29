@@ -15,7 +15,7 @@ function ProductCard(props) {
       >
         <div className="pd-img">
           <img
-            src={'http://localhost:3002/img/' + img}
+            src={'http://localhost:3002/img/Product/' + img}
             alt=""
           />
         </div>
