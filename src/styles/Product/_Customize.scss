@@ -28,14 +28,14 @@ nav {
 /* 增肌 */
 .pd-gain {
   @include target;
-  background: url('http://localhost:3000/img/商城img/客製化/增肌減脂.jpg')
+  background: url('http://localhost:3000/img/Product/客製化/增肌減脂.jpg')
     center center no-repeat;
   background-size: 100%;
 }
 /* 變瘦 */
 .pd-slim {
   @include target;
-  background: url('http://localhost:3000/img/商城img/客製化/變瘦.jpg')
+  background: url('http://localhost:3000/img/Product/客製化/變瘦.jpg')
     center center no-repeat;
   background-size: 100%;
 }
@@ -49,14 +49,14 @@ nav {
 /* 三次 */
 .pd-three {
   @include target;
-  background: url('http://localhost:3000/img/商城img/客製化/運動3次.jpg')
+  background: url('http://localhost:3000/img/Product/客製化/運動3次.jpg')
     center center no-repeat;
   background-size: 100%;
 }
 /* 不運動 */
 .pd-none {
   @include target;
-  background: url('http://localhost:3000/img/商城img/客製化/不運動.jpg')
+  background: url('http://localhost:3000/img/Product/客製化/不運動.jpg')
     center center no-repeat;
   background-size: 100%;
 }
