@@ -38,14 +38,27 @@ function Products(props) {
   // 篩選radio
   const [filter, setFilter] = useState('')
   
+  // 解析URL參數
   const sp = searchParams.toString()
+  // console.log(searchParams.toString())
 
-  console.log(searchParams.toString())
+  // const searchCate = searchCateParams.get('cate')
+  // const searchKeyword = searchCateParams.get('keyword')
+  // 當跳頁的時候把URL參數設定回狀態
+  const setUpdateState = ()=>{
+    const cate = searchParams.get('cate')
+    const page = searchParams.get('page')
+    setProductCate(cate)
+    setNowPage(page)
+
+  }
 
   // 跳轉頁面都會觸發
   useEffect(() => {
+    setUpdateState()
     console.log('123')
   }, [sp])
+
 
   // // 要所有資料
   useEffect(() => {

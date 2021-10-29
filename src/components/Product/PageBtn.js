@@ -9,12 +9,12 @@ function PageBtn(props) {
     page.push(i)
   }
   // 解析路徑上的分類號
-  const searchCateParams = new URLSearchParams(
+  const searchParams = new URLSearchParams(
     props.location.search
   )
   // 取的分類號,跟關鍵字
-  const searchCate = searchCateParams.get('cate')
-  const searchKeyword = searchCateParams.get('keyword')
+  const searchCate = searchParams.get('cate')
+  const searchKeyword = searchParams.get('keyword')
 
   return (
     <>
