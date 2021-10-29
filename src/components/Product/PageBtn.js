@@ -12,11 +12,10 @@ function PageBtn(props) {
   const searchCateParams = new URLSearchParams(
     props.location.search
   )
-  // 取的分類號,關鍵字搜尋會是null
+  // 取的分類號,跟關鍵字
   const searchCate = searchCateParams.get('cate')
   const searchKeyword = searchCateParams.get('keyword')
 
-  // console.log(searchKeyword)
   return (
     <>
       <div className="page-btn-wrap d-flex">
@@ -24,21 +23,33 @@ function PageBtn(props) {
         <div
           className="page-pre"
           onClick={() => {
-            if (nowpage > 1)
-              setNowPage(parseInt(nowpage) - 1)
-            console.log('前一頁', nowpage)
-            props.history.push(
-              `?cate=${searchCate}` + '&page=' + nowpage
-            )
+            if (nowpage > 1){
+              const np = parseInt(nowpage) -1;
+              setNowPage(np)
+              const usp = new URLSearchParams({'page': np});
+              if(searchCate){
+                usp.set('cate', searchCate);
+              }
+              if(searchKeyword){
+                usp.set('keyword', searchKeyword);
+              }
+              props.history.push(
+                `?${usp.toString()}`
+              ) 
+            }
+
+            //   setNowPage(parseInt(nowpage) - 1)
+            // console.log('前一頁', nowpage)
+            // props.history.push(
+            //   `?cate=${searchCate}` + '&page=' + nowpage
+            // )
           }}
         >
           <i className="fas fa-chevron-left"></i>
         </div>
         {/* 頁數 */}
         <div className="page d-flex">
-          {/* 把頁數map出來, click同時設定頁數狀態 */}
           {page.map((v, i) => {
-            {/* 如果有分類搜尋 */}
             const usp = new URLSearchParams({'page': v});
             if(searchCate){
               usp.set('cate', searchCate);
@@ -46,7 +57,6 @@ function PageBtn(props) {
             if(searchKeyword){
               usp.set('keyword', searchKeyword);
             }
-
             return (
               <div key={i}>
                 <Link

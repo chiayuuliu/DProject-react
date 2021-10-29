@@ -18,7 +18,7 @@ function CateTag(props) {
         onClick={(e) => {
           setProductCate(e.target.value)
           setSearchWord('')
-          props.history.push('/products/?cate=0')
+          props.history.push('/products/?cate=0&page=1')
         }}
       />
       <label className="pd-all" htmlFor="all">
@@ -34,7 +34,7 @@ function CateTag(props) {
         onClick={(e) => {
           setProductCate(e.target.value)
           setSearchWord('')
-          props.history.push('/products/?cate=1')
+          props.history.push('/products/?cate=1&page=1')
         }}
       />
       <label className="pd-table" htmlFor="table">
@@ -50,7 +50,7 @@ function CateTag(props) {
         onClick={(e) => {
           setProductCate(e.target.value)
           setSearchWord('')
-          props.history.push('/products/?cate=2')
+          props.history.push('/products/?cate=2&page=1')
         }}
       />
       <label className="pd-workout" htmlFor="workable">
@@ -66,7 +66,7 @@ function CateTag(props) {
         onClick={(e) => {
           setProductCate(e.target.value)
           setSearchWord('')
-          props.history.push('/products/?cate=3')
+          props.history.push('/products/?cate=3&page=1')
         }}
       />
       <label className="pd-material" htmlFor="material">
